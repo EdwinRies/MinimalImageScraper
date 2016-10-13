@@ -11,6 +11,11 @@
 <head>
     <title>Example Application</title>
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" type="text/javascript"></script>
+    <style>
+        img{
+            display:inline-block;
+        }
+    </style>
 </head>
 <body>
 <div class="container">
@@ -113,6 +118,7 @@ if(isset($_POST['findImages']))
     try {
         $scraper = new Scraper($url);
         @$DOM->loadHTML($scraper->scrape()); //Surpress errors as most html pages are not 100% perfect on the web, but we can still use them
+        $url = $scraper->getUrl();
     }
     catch (Exception $e)
     {
@@ -126,7 +132,7 @@ if(isset($_POST['findImages']))
     {
         if($image->hasAttribute('src')) {
             $src = @rel2abs($image->getAttribute('src'), $url);
-            echo "<img src=\"imageModder.php?u=", urlencode($src), "\" /><br/>";
+            echo "<img src=\"imageModder.php?u=", urlencode($src), "\" />";
             $count++;
         }
     }
