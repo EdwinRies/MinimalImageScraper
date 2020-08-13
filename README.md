@@ -1,3 +1,3 @@
 # Minimal Image Scraper Example
 
-Note it does not support https sites yet
+When I started applying for jobs after graduating, I was obsessed with scraping. I created this for an interview in 2016.
